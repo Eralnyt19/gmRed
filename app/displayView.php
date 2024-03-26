@@ -15,13 +15,6 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 
 
-$income_list = ["Sjukersättning", "Merkostnad", "Habilitering", "Bostadbidrag", "Lön", "Räntor",
-               "Skatteåterbäring", "Övrigt"];
-
-$expense_list = ["Hyra", "Medicin", "Tfn TV", "Försäkring", "Privat", "Övrigt", "Skatt",
-                "BankAvg/KvSkatt", "Arvode", "Arvodesskatt", "Färdtjänst", "FUB/ABF",
-                "Vattenfall", "Spärrkonto"];
-
 require  'app.php';
 require  'helper.php';
 
