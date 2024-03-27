@@ -31,6 +31,9 @@ form#form1 {
 
 $nameErr = $saldoErr = "";
 
+// Initiate cookie   
+setcookie("monthIndex", "1");
+
 
 if(!isset($customer)) {
 	$customer = "";

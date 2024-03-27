@@ -58,9 +58,9 @@
 <form action="conceptHandler.php">
   <label for="month">Välj månad:</label>
   <select id="month" name="month">
- 	 <?php foreach ($months as $month ): ?>
-		<option > <?= $month   ?></option> 
-	<?php endforeach ?>  
+  <?php foreach ($months as $month ): ?>
+    <option value= <?= $month; ?>  <?= ($month == $preMonth) ? ' selected' : ''; ?>      >   <?= $month   ?></option> 
+  <?php endforeach ?>  
   </select>
 <br/>
 <br/>

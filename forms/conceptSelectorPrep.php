@@ -23,6 +23,14 @@ $concepts = getAllConcepts();
 
 $customer = $_COOKIE["customer"];
 
+$monthIndex = $_COOKIE["monthIndex"];
+
+if ($monthIndex == NULL) {
+	 $monthIndex = 1;
+}
+
+$preMonth = getMonth($monthIndex);
+
 $saldo =  getSaldo($customer);
 
 $saldo = number_format($saldo,2);
