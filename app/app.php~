@@ -170,7 +170,7 @@ function checkIfCustomerExist($customer)  {
 ////////////////////////////////////////////////
 ////////// CREATE NEW CUSTOMER ///////////////////
 ///////////////////////////////////////////////////
-function createNewCustomer($customer, $inSaldo) {
+function createNewCustomer($customer, $dirPath, $inSaldo) {
 
 		// Just to be sure
 	$res = checkCustomerInDb($customer);

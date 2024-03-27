@@ -7,6 +7,6 @@ $customer = $_COOKIE["customer"];
 $inSaldo = $_COOKIE["insaldo"];
 $newCustomer = $_COOKIE["newcustomer"];
 
-require "./public/index.php";
+require "./main.php";
 
 ?>
