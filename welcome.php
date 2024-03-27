@@ -123,7 +123,7 @@ if (isset($_POST["inSaldo"])) {
 
 <br><br>
 <!--    Any point with the php include ? -->
-<form method="post" id="hiddenform" name="hiddenform" action="<?php echo htmlspecialchars("/gm-view/fullFormSwitch.php");?>">  
+<form method="post" id="hiddenform" name="hiddenform" action="<?php echo htmlspecialchars("fullFormSwitch.php");?>">  
 <br><br><br><br><br>
 
 <input type="submit" style= "background-color: #6CE9F9";  value="Skapa ny redovisning">
