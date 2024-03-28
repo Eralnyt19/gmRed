@@ -35,7 +35,7 @@ echo '<script type="text/javascript"> window.location.href="forms/conceptSelecto
 	
 	$show = true;
 	
-	require($root  . "fullFormSwitch.php"); 
+	require("./fullFormSwitch.php"); 
 }
 
 
