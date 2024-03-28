@@ -42,8 +42,7 @@ $expenseTable  = getExpence($customer);
 
 $totals = calculateTotals($customer);
 	
-require VIEWS_PATH . 'transactions.php';
-
+require VIEWS_PATH . 'compilation.php';
 
 
 
