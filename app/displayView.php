@@ -30,7 +30,7 @@ $transactions = [];
 
 $incomeTable  = getIncome($customer);
 $expenseTable  = getExpence($customer); 
-
+$tableHead = getTableHead();
 
 $totals = calculateTotals($customer);
 	

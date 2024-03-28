@@ -4,7 +4,7 @@ require("db_functions.php");
 
 
 
-$tableHead = ["Category", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Total"];
+// $tableHead = ["Category", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Total"];
 
 define ('INCOME' , 1) ; 
 define ('EXPENSE' , 2) ; 
@@ -264,5 +264,10 @@ function getMonthIndex($month) {
 function getConceptKey($concept) {
 	return getConceptKeyFromDb($concept);
 }
+
+function getTableHead() {
+	return getTableHeadFromDb();
+}
+
 
 ?>

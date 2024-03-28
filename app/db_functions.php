@@ -423,6 +423,28 @@ return $categories;
 
 }
 
+function getTableHeadFromDb(){
+require ("db.php");
+
+$sql = "SELECT * FROM TableHead;";
+
+$result = $conn->query($sql);
+
+$tableHead = [];
+
+
+if ($result->num_rows > 0) {
+		while ($item = $result->fetch_assoc()) {
+			array_push($tableHead, $item["Description"]);
+		}
+}
+return $tableHead;
+
+}
+
+
+
+
 
 
 
