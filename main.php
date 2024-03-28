@@ -1,7 +1,5 @@
 <?php
 
-// declare(strict_types = 1);
-
 
                 
 $newCustomerOk = false;
@@ -9,9 +7,6 @@ $customerExist = false;
 
 require 'app/app.php';
 require 'app/helper.php';
-
-
-
 
 
 
@@ -25,8 +20,6 @@ if($newCustomer) {
 	
 				
 if( ($customerExist && !$newCustomer) ||   $newCustomerOk ){
-
-
 
 
 echo '<script type="text/javascript"> window.location.href="forms/conceptSelectorPrep.php" </script>';	

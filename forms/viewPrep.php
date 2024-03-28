@@ -19,14 +19,11 @@ $link = "../app/displayView.php";
 
 
 
-// echo '<script type="text/javascript"> window.location.href="/gm-view/app/displayView.php" </script>';
 
 echo "<script type='text/javascript'> window.location.href='$link'</script>";
 
 
 ?>
-
-
 
 
 </body>

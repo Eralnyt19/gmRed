@@ -3,10 +3,6 @@
 require("db_functions.php");
 
 
-// month_list = ["DUM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-
-
 
 $tableHead = ["Category", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Total"];
 
@@ -18,55 +14,11 @@ define ('MONTHINYEAR' , 12) ;
 
 
 
-function formatMonth(string $month) {
-
-	$namesOfMonth = ["DUM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-	$month = (int) $month;
-	$month = $month++;  //start index at 1
-
-
-	return $namesOfMonth[$month];
-
-}
-
-function formatDescription(array $tableRow, array $list) : array {
-	
-    
- 		$tableRow[DESCRIPTIONPOS] = $list[(int) $tableRow[DESCRIPTIONPOS]];
-     
-     return $tableRow;   
-}
-
-function extractTransaction(array $transactionRow): array {
-
-
-	[$sequence, $month, $type, $description, $amount] = $transactionRow;
-	
-
-	$amount =  (float) preg_replace("/[^-0-9\.]/","", $amount);
-	if ($type == EXPENSE) { $amount = -$amount;}
-	
-	// Discard sequence and add customer
-	
-	return [
-		'DUMMY',
-		'month'	=> $month,
-		'type'  => $type,
-		'description'  => $description,
-		'amount'  => $amount,
-	];
-
-}
-
-
-///////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////7
-
 
 function  getIncome($customer){
 	return getTransactions($customer, "Inkomst");
 }
+
 
 function  getExpence($customer){
 	return getTransactions($customer, "Utgift");
@@ -74,7 +26,9 @@ function  getExpence($customer){
 
 
 
-
+////////////////////////////////////////////////
+////////// GET TRANSACTIONS ///////////////////
+///////////////////////////////////////////////////
 function  getTransactions($customer, $concept) {
 
 
@@ -114,9 +68,7 @@ function getRow($customerId, $conceptKey, $category, $categoryIndex){
 		$row[$i] = 0.0;
 	}
 	
-	
-
-	
+		
 	for($monthIx = DESCRIPTIONPOS; $monthIx <= MONTHINYEAR; $monthIx++ ) {
 		$transactions = getTransactionsFromDb($customerId, $conceptKey, $categoryIndex, $monthIx);
 		foreach($transactions as $transaction ) {
@@ -155,9 +107,6 @@ function  calculateTotals($customer){
 
 
 
-
-
-
 function checkIfCustomerExist($customer)  {
 
 	$res = checkCustomerInDb($customer);
@@ -192,6 +141,9 @@ function createNewCustomer($customer, $inSaldo) {
 }
 
 
+///////////////////////////////////////////////////
+////////// WRITE TRANSACTION///////////////////
+///////////////////////////////////////////////////
 function writeTransaction($category, $amount) {
 
 
@@ -206,6 +158,7 @@ function writeTransaction($category, $amount) {
 	return $saldo;
 
 }
+
 
 function updateSaldo($customer,$conceptKey, $amount){
 
@@ -235,14 +188,14 @@ function retrieveLatestTransaction(){
 
 	$transaction = getTransactionFromDb($transId);	
 	
-		
-
 return $transaction;
 }
+
 
 function getConceptName($conceptKey) {
 	return getConceptNameFromDb($conceptKey);
 }
+
 
 function getCategoryDescription($categoryIndex, $conceptKey) {
  	return getCategoryDescriptionFromDb($categoryIndex, $conceptKey);
@@ -259,6 +212,9 @@ function getSaldo($customer){
 }
 
 
+///////////////////////////////////////////////////
+////////// REMOVE TRANSACTION///////////////////
+///////////////////////////////////////////////////
 function removeTransaction($transId){
 	
 	$customer = $_COOKIE["customer"];	
@@ -288,18 +244,22 @@ function getAllMonths(){
 
 }
 
+
 function getAllConcepts(){
 
 	return getAllConceptsFromDb();
 }
 
+
 function getAllCategories($concept){
 	return getAllCategoriesFromDb($concept);
 }
 
+
 function getMonthIndex($month) {
 	return getMonthIndexFromDb($month);
 }
+
 
 function getConceptKey($concept) {
 	return getConceptKeyFromDb($concept);
